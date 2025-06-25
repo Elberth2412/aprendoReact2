@@ -1,9 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
+import HolamMundo from './componentes/holamundo';
+import Datos from './componentes/datos';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
+      
+      <HolamMundo />
+
+      <form>
+        <Datos
+          etiqueta = "NOMBRE"
+          tipo = "text"
+        />
+
+        <Datos
+          etiqueta = "CONTRASEÑA"
+          tipo = "password"
+        />
+
+      </form>
+
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
