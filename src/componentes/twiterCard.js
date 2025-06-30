@@ -1,13 +1,15 @@
 import { useState } from "react";
 
-const TwiterCard = ({ children, name, isfollower, userName }) => {
+const TwiterCard = ({ children, userName, inicialisFollowing }) => {
 
+    const [boton, setBoton] = useState(inicialisFollowing);
+    const text = boton ? 'Seguir' : 'Siguiendo'
 
+    const altNombre = `El avatar de ${userName}`
 
-    const [boton, setBoton] = useState(isfollower);
-    const text = isfollower ? 'Siguiendo' : 'Seguir'
-
-    const altNombre = `El avatar de ${name}`
+    const handleClick = () => {
+        setBoton(!boton)
+    }
 
     return (
         <article className='tw-followCard'>
@@ -24,8 +26,8 @@ const TwiterCard = ({ children, name, isfollower, userName }) => {
             </header>
 
             <aside>
-                <button className='tw-followCard-button' onClick={() => setBoton(!boton)}>
-                    {boton && <>{text}</>}
+                <button className='tw-followCard-button' onClick={handleClick}>
+                    {text}
                 </button>
             </aside>
         </article>
